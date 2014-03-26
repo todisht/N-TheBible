@@ -16,8 +16,16 @@
     CGFloat brush;
     CGFloat opacity;
     BOOL mouseSwiped;
+    int currentStep;
 }
 
 @property (weak, nonatomic) IBOutlet UIImageView *overlayImage;
+
+@property (weak, nonatomic) IBOutlet UIImageView *redCirc;
+
+@property (nonatomic, strong) NSMutableArray *verses;
+
+@property (weak, nonatomic) IBOutlet UITextView *verseLabel;
+@property (weak, nonatomic) IBOutlet UIWebView *verseLabel2;
 
 @end

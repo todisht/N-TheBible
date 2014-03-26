@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+    <array>
+        <dict>
+            <key>book</key>
+            <string>Romans</string>
+            <key>chapterVerse</key>
+            <string>3:23</string>
+            <key>verseText</key>
+            <string>All have sinned.</string>
+        </dict>
+        
+        <dict>
+            <key>book</key>
+            <string>Romans</string>
+            <key>chapterVerse</key>
+            <string>6:23</string>
+            <key>verseText</key>
+            <string>Sin separates us from God, and brings death.</string>
+        </dict>
+        
+        <dict>
+            <key>book</key>
+            <string>1 Corinthians</string>
+            <key>chapterVerse</key>
+            <string>15:3</string>
+            <key>verseText</key>
+            <string>But Jesus died for our sins and rose again.</string>
+        </dict>
+        
+        <dict>
+            <key>book</key>
+            <string>John</string>
+            <key>chapterVerse</key>
+            <string>3:16</string>
+            <key>verseText</key>
+            <string><![CDATA[<em>If we trust Jesus to forgive our sins and obey Him, we will be God's friend and be in Heaven with Him one day.</em>]]></string>
+            <key>formattedVerse</key>
+            <string><![CDATA[<em>If we trust Jesus to forgive our sins and obey Him, we will be God's friend and be in Heaven with Him one day.</em><br/>John 3:16]]></string>
+        </dict>
+    </array>
+</plist>

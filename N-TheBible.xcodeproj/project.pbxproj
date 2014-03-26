@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		00AE50C218DFC2DC00020A66 /* verses.plist in Resources */ = {isa = PBXBuildFile; fileRef = 00AE50C118DFC2DC00020A66 /* verses.plist */; };
+		00AE50C418E11B8300020A66 /* images in Resources */ = {isa = PBXBuildFile; fileRef = 00AE50C318E11B8300020A66 /* images */; };
 		00EF621818D27E3E00498865 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00EF621718D27E3E00498865 /* Foundation.framework */; };
 		00EF621A18D27E3E00498865 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00EF621918D27E3E00498865 /* CoreGraphics.framework */; };
 		00EF621C18D27E3E00498865 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00EF621B18D27E3E00498865 /* UIKit.framework */; };
@@ -22,8 +24,6 @@
 		00EF623C18D27E3F00498865 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00EF621B18D27E3E00498865 /* UIKit.framework */; };
 		00EF624418D27E3F00498865 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 00EF624218D27E3F00498865 /* InfoPlist.strings */; };
 		00EF624618D27E3F00498865 /* N_TheBibleTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00EF624518D27E3F00498865 /* N_TheBibleTests.m */; };
-		00EF625118D293B600498865 /* redCircle.png in Resources */ = {isa = PBXBuildFile; fileRef = 00EF625018D293B600498865 /* redCircle.png */; };
-		00EF625318D293BF00498865 /* N.png in Resources */ = {isa = PBXBuildFile; fileRef = 00EF625218D293BF00498865 /* N.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -37,6 +37,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		00AE50C118DFC2DC00020A66 /* verses.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = verses.plist; sourceTree = "<group>"; };
+		00AE50C318E11B8300020A66 /* images */ = {isa = PBXFileReference; lastKnownFileType = folder; path = images; sourceTree = "<group>"; };
 		00EF621418D27E3E00498865 /* N-TheBible.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "N-TheBible.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		00EF621718D27E3E00498865 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		00EF621918D27E3E00498865 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -57,8 +59,6 @@
 		00EF624118D27E3F00498865 /* N-TheBibleTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "N-TheBibleTests-Info.plist"; sourceTree = "<group>"; };
 		00EF624318D27E3F00498865 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		00EF624518D27E3F00498865 /* N_TheBibleTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = N_TheBibleTests.m; sourceTree = "<group>"; };
-		00EF625018D293B600498865 /* redCircle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = redCircle.png; sourceTree = "<group>"; };
-		00EF625218D293BF00498865 /* N.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = N.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -88,7 +88,7 @@
 		00EF620B18D27E3E00498865 = {
 			isa = PBXGroup;
 			children = (
-				00EF624F18D293A000498865 /* Graphics */,
+				00AE50C118DFC2DC00020A66 /* verses.plist */,
 				00EF621D18D27E3E00498865 /* N-TheBible */,
 				00EF623F18D27E3F00498865 /* N-TheBibleTests */,
 				00EF621618D27E3E00498865 /* Frameworks */,
@@ -119,6 +119,7 @@
 		00EF621D18D27E3E00498865 /* N-TheBible */ = {
 			isa = PBXGroup;
 			children = (
+				00AE50C318E11B8300020A66 /* images */,
 				00EF622618D27E3E00498865 /* AppDelegate.h */,
 				00EF622718D27E3E00498865 /* AppDelegate.m */,
 				00EF622918D27E3E00498865 /* Main_iPhone.storyboard */,
@@ -158,15 +159,6 @@
 				00EF624218D27E3F00498865 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		00EF624F18D293A000498865 /* Graphics */ = {
-			isa = PBXGroup;
-			children = (
-				00EF625218D293BF00498865 /* N.png */,
-				00EF625018D293B600498865 /* redCircle.png */,
-			);
-			name = Graphics;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -245,11 +237,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				00EF625318D293BF00498865 /* N.png in Resources */,
+				00AE50C418E11B8300020A66 /* images in Resources */,
 				00EF622E18D27E3E00498865 /* Main_iPad.storyboard in Resources */,
 				00EF623318D27E3E00498865 /* Images.xcassets in Resources */,
 				00EF622B18D27E3E00498865 /* Main_iPhone.storyboard in Resources */,
-				00EF625118D293B600498865 /* redCircle.png in Resources */,
+				00AE50C218DFC2DC00020A66 /* verses.plist in Resources */,
 				00EF622218D27E3E00498865 /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -490,6 +482,7 @@
 				00EF624B18D27E3F00498865 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		00EF624C18D27E3F00498865 /* Build configuration list for PBXNativeTarget "N-TheBibleTests" */ = {
 			isa = XCConfigurationList;
@@ -498,6 +491,7 @@
 				00EF624E18D27E3F00498865 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

@@ -12,17 +12,24 @@
 
 @end
 
+
+
 @implementation ViewController
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
-    red = 0.0/255.0;
-    green = 0.0/255.0;
-    blue = 0.0/255.0;
+    red = 177/255.0;
+    green = 71/255.0;
+    blue = 71/255.0;
     brush = 10.0;
     opacity = 1.0;
+    currentStep = 0;
+    
+    // 2 - Load movie quotes from plist
+    NSString *plistCatPath = [[NSBundle mainBundle] pathForResource:@"verses" ofType:@"plist"];
+    self.verses = [NSMutableArray arrayWithContentsOfFile:plistCatPath];
 }
 
 - (void)didReceiveMemoryWarning
@@ -62,19 +69,28 @@
 }
 
 - (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event {
-    
     if(!mouseSwiped) {
-        UIGraphicsBeginImageContext(self.view.frame.size);
-        [self.overlayImage.image drawInRect:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height)];
-        CGContextSetLineCap(UIGraphicsGetCurrentContext(), kCGLineCapRound);
-        CGContextSetLineWidth(UIGraphicsGetCurrentContext(), brush*2); //if just a tap, no swipe
-        CGContextSetRGBStrokeColor(UIGraphicsGetCurrentContext(), red, green, blue, opacity);
-        CGContextMoveToPoint(UIGraphicsGetCurrentContext(), lastPoint.x, lastPoint.y);
-        CGContextAddLineToPoint(UIGraphicsGetCurrentContext(), lastPoint.x, lastPoint.y);
-        CGContextStrokePath(UIGraphicsGetCurrentContext());
-        CGContextFlush(UIGraphicsGetCurrentContext());
-        self.overlayImage.image = UIGraphicsGetImageFromCurrentImageContext();
-        UIGraphicsEndImageContext();
+        UITouch *touch = [touches anyObject];
+        CGPoint currentPoint = [touch locationInView:self.view];
+        UIImageView *imgView = [[UIImageView alloc] initWithFrame:CGRectMake(currentPoint.x, currentPoint.y, 19, 19)];
+        imgView.image = [UIImage imageNamed:@"images/redCircle.png"];
+        
+        [self.view addSubview:imgView];
+        
+        NSString *book = self.verses[3][@"book"];
+        NSString *chapterVerse = self.verses[3][@"chapterVerse"];
+        NSString *verseText = self.verses[3][@"verseText"];
+        NSString *formattedVerse = self.verses[3][@"formattedVerse"];
+        
+        NSString *fullVerse = [NSString stringWithFormat:@"%@\n%@ %@", verseText,book,chapterVerse];
+        self.verseLabel.text = fullVerse;
+        
+        NSString *htmlString = @"<html><body>";
+        htmlString = [htmlString stringByAppendingString:formattedVerse];
+        htmlString = [htmlString stringByAppendingString:@"</body></html>"];
+        // UIWebView uses baseURL to find style sheets, images, etc that you include in your HTML.
+        NSURL *bundleUrl = [NSURL fileURLWithPath:[[NSBundle mainBundle] bundlePath]];
+        [self.verseLabel2 loadHTMLString:htmlString baseURL:bundleUrl];
     }
 }
 
