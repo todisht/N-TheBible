@@ -9,6 +9,8 @@
             <string>3:23</string>
             <key>verseText</key>
             <string>All have sinned.</string>
+            <key>formattedVerse</key>
+            <string><![CDATA[<em>All have sinned.</em><br/>Romans 3:23]]></string>
         </dict>
         
         <dict>
@@ -18,6 +20,8 @@
             <string>6:23</string>
             <key>verseText</key>
             <string>Sin separates us from God, and brings death.</string>
+            <key>formattedVerse</key>
+            <string><![CDATA[<em>Sin separates us from God, and brings death.</em><br/>Romans 6:23]]></string>
         </dict>
         
         <dict>
@@ -27,6 +31,8 @@
             <string>15:3</string>
             <key>verseText</key>
             <string>But Jesus died for our sins and rose again.</string>
+            <key>formattedVerse</key>
+            <string><![CDATA[<em>But Jesus died for our sins and rose again.</em><br/>1 Corinthians 15:3]]></string>
         </dict>
         
         <dict>

@@ -25,7 +25,7 @@
 
 @property (nonatomic, strong) NSMutableArray *verses;
 
-@property (weak, nonatomic) IBOutlet UITextView *verseLabel;
+//@property (weak, nonatomic) IBOutlet UITextView *verseLabel;
 @property (weak, nonatomic) IBOutlet UIWebView *verseLabel2;
 
 @end

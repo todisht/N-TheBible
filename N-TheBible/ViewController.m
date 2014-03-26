@@ -19,7 +19,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view, typically from a nib.
+    
     red = 177/255.0;
     green = 71/255.0;
     blue = 71/255.0;
@@ -30,6 +30,15 @@
     // 2 - Load movie quotes from plist
     NSString *plistCatPath = [[NSBundle mainBundle] pathForResource:@"verses" ofType:@"plist"];
     self.verses = [NSMutableArray arrayWithContentsOfFile:plistCatPath];
+    
+    
+    NSString *htmlString = @"<html><body style='color:#fff'>";
+    htmlString = [htmlString stringByAppendingString:@"What does it say 'N' the Bible about how to get to Heaven?"];
+    htmlString = [htmlString stringByAppendingString:@"</body></html>"];
+    // UIWebView uses baseURL to find style sheets, images, etc that you include in your HTML.
+    NSURL *bundleUrl = [NSURL fileURLWithPath:[[NSBundle mainBundle] bundlePath]];
+    [self.verseLabel2 loadHTMLString:htmlString baseURL:bundleUrl];
+
 }
 
 - (void)didReceiveMemoryWarning
@@ -70,6 +79,7 @@
 
 - (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event {
     if(!mouseSwiped) {
+        BOOL updateText = NO;
         UITouch *touch = [touches anyObject];
         CGPoint currentPoint = [touch locationInView:self.view];
         UIImageView *imgView = [[UIImageView alloc] initWithFrame:CGRectMake(currentPoint.x, currentPoint.y, 19, 19)];
@@ -77,20 +87,33 @@
         
         [self.view addSubview:imgView];
         
-        NSString *book = self.verses[3][@"book"];
-        NSString *chapterVerse = self.verses[3][@"chapterVerse"];
-        NSString *verseText = self.verses[3][@"verseText"];
-        NSString *formattedVerse = self.verses[3][@"formattedVerse"];
+                                                        
+        if((currentPoint.x > 59 && currentPoint.x < 80) && (currentPoint.y > 444 && currentPoint.y < 484)){
+            currentStep = 0;
+            updateText = YES;
+        } else if ((currentPoint.x > 43 && currentPoint.x < 87) && (currentPoint.y > 194 && currentPoint.y < 230)) {
+            currentStep = 1;
+            updateText = YES;
+        } else if ((currentPoint.x > 213 && currentPoint.x < 254) && (currentPoint.y > 444 && currentPoint.y < 484)) {
+            currentStep = 2;
+            updateText = YES;
+        } else if ((currentPoint.x > 213 && currentPoint.x < 254) && (currentPoint.y > 194 && currentPoint.y < 230)) {
+            currentStep = 3;
+            updateText = YES;
+        } else {
+            updateText = NO;
+        }
+
+        if(updateText) {
+            NSString *formattedVerse = self.verses[currentStep][@"formattedVerse"];
+            NSString *htmlString = @"<html><body style='color:#fff'>";
+            htmlString = [htmlString stringByAppendingString:formattedVerse];
+            htmlString = [htmlString stringByAppendingString:@"</body></html>"];
+            // UIWebView uses baseURL to find style sheets, images, etc that you include in your HTML.
+            NSURL *bundleUrl = [NSURL fileURLWithPath:[[NSBundle mainBundle] bundlePath]];
+            [self.verseLabel2 loadHTMLString:htmlString baseURL:bundleUrl];
+        }
         
-        NSString *fullVerse = [NSString stringWithFormat:@"%@\n%@ %@", verseText,book,chapterVerse];
-        self.verseLabel.text = fullVerse;
-        
-        NSString *htmlString = @"<html><body>";
-        htmlString = [htmlString stringByAppendingString:formattedVerse];
-        htmlString = [htmlString stringByAppendingString:@"</body></html>"];
-        // UIWebView uses baseURL to find style sheets, images, etc that you include in your HTML.
-        NSURL *bundleUrl = [NSURL fileURLWithPath:[[NSBundle mainBundle] bundlePath]];
-        [self.verseLabel2 loadHTMLString:htmlString baseURL:bundleUrl];
     }
 }
 
