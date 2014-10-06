@@ -82,8 +82,19 @@
         BOOL updateText = NO;
         UITouch *touch = [touches anyObject];
         CGPoint currentPoint = [touch locationInView:self.view];
-        UIImageView *imgView = [[UIImageView alloc] initWithFrame:CGRectMake(currentPoint.x, currentPoint.y, 19, 19)];
-        imgView.image = [UIImage imageNamed:@"images/redCircle.png"];
+        UIImageView *imgView;
+        
+        if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone)
+        {
+            imgView = [[UIImageView alloc] initWithFrame:CGRectMake(currentPoint.x-15, currentPoint.y-15, 30, 30)];
+            imgView.image = [UIImage imageNamed:@"images/redCircle.png"];
+            NSLog(@"iphone");
+        } else {
+            imgView = [[UIImageView alloc] initWithFrame:CGRectMake(currentPoint.x-15, currentPoint.y-15, 80, 80)];
+            imgView.image = [UIImage imageNamed:@"redCircle-iPad.png"];
+            NSLog(@"ipad");
+        }
+        
         
         [self.view addSubview:imgView];
         
